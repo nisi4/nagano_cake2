@@ -6,11 +6,74 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+    <div class="container-fluid border-bottom border-1px border-dark">
+      <div class="row">
+        <div class="col-sm-5 my-3 my-sm-4 align-self-center">
+          <h2 class="mb-0"><span class="px-sm-3 py-sm-2">ながのCAKE</span></h2>
+        </div>
+        <div class="col-sm-7">
+          <div class="row justify-content-sm-end">
+            <nav class="navbar navbar-expand-md navbar-light bg-white">
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#dropdown">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="dropdown">
+                <ul class="navbar-nav my-sm-4">
+                  <% if admin_signed_in? %>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">商品一覧</button>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">会員一覧</button>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">注文履歴一覧</button>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">ジャンル一覧</button>
+                    </li>
+                    <li class="nav-item ml-3">
+                      <button class="btn btn-outline-secondary">ログアウト</button>
+                    </li>                    
+                  <% else %>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">About</button>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">商品一覧</button>
+                    </li>
+                    <li class="nav-item mx-3">
+                      <button class="btn btn-outline-secondary">新規登録</button>
+                    </li>
+                    <li class="nav-item ml-3">
+                      <button class="btn btn-outline-secondary">ログイン</button>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6">
+              <div class="input-group mb-4">
+                <input type="text" id="icon-search" class="form-control input-group-prepend" placeholder="Search"></input>
+                <span class="input-group-btn input-group-append">
+                  <submit type="submit" id="btn-search" class="btn btn-outline-secondary"><i class="fas fa-search"></i></submit>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </header>  
     <%= yield %>
   </body>
 </html>

@@ -39,7 +39,9 @@
                       <button class="btn btn-outline-secondary">ジャンル一覧</button>
                     </li>
                     <li class="nav-item ml-3">
-                      <button class="btn btn-outline-secondary">ログアウト</button>
+                      <%= link_to destroy_admin_session_path,method: :delete do %>
+                       <button class="btn btn-outline-secondary">ログアウト</button>
+                      <% end %>
                     </li>                    
                   <% else %>
                     <li class="nav-item mx-3">

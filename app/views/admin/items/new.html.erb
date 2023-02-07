@@ -6,7 +6,7 @@
   <div class="row d-flex justify-content-center offset-2 mb-3">
     <h6 class="col-sm-2">商品画像</h6>
     <div class="col-sm-6">
-      <%= f.file_field :image %>
+      <%= f.file_field :image, accept: "image/*" %>
     </div>
   </div>
   <div class="row d-flex justify-content-center offset-2 mb-3">

@@ -1,11 +1,7 @@
 class Admin::GenresController < ApplicationController
   def index
-    if admin_signed_in?
       @genre = Genre.new
       @genres = Genre.all
-    else
-      redirect_to new_admin_session_path
-    end
   end
   
   def create

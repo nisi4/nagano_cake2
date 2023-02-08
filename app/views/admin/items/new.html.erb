@@ -36,7 +36,7 @@
   <div class="row d-flex justify-content-center offset-2 mb-3">
     <h6 class="col-sm-2 px-o">販売ステータス</h6>
     <div class="col-sm-6">
-　　　<%= f.radio_button :is_active, "true" %>販売中 <%= f.radio_button :is_active, "false" %>販売停止中
+　　　<label><%= f.radio_button :is_active, "true",checked: true %>販売中</label><label><%= f.radio_button :is_active, "false" %>販売停止中</label>
     </div>
   </div>
   <div class="row d-flex justify-content-center">

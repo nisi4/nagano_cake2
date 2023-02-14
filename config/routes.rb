@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'orders/new'
+  get 'orders/complete'
+  get 'orders' => "public/orders#index"
+  get 'orders/:id' => "public/orders#show"
+
+  get 'addresses' => "public/addresses#index"
+  get 'addresses/:id/edit' => "public/addresses#edit"
+
   resources :cart_items,only: [:index]
 
   resources :items,only: [:index,:show]

@@ -4,4 +4,9 @@ class ApplicationController < ActionController::Base
    def admin_url
      request.fullpath.include?("/admin")
    end
+   
+   def application
+     @customer = current_customer
+   end
+   
 end

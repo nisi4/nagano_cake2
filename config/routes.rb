@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get 'orders/:id' => "public/orders#show"
 
   get 'addresses' => "public/addresses#index"
-  get 'addresses/:id/edit' => "public/addresses#edit"
+  post "addresses" => "public/addresses#create"
+  get 'addresses/:id/edit' => "public/addresses#edit",as: "edit_address"
+  patch "addresses/:id" => "public/addresses#update",as: "update_address"
+  delete "addresses/:id" => "public/addresses#destroy",as: "delete_address"
 
   resources :cart_items,only: [:index]
 

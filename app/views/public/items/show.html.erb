@@ -18,10 +18,32 @@
         <div class="col-sm-9 mt-5">
             <div class="row">
                 <div class="col-sm-5">
-                    <%= image_tag.@item.get_image,class: "img-fluid" %>
+                    <%= image_tag @item.get_image,class: "img-fluid" %>
                 </div>
-                <div class="col-sm-7">
-                    
+                <div class="col-sm-6 ml-5">
+                    <div class="row mb-3">
+                        <h1 class="font-weight-bold"><%= @item.name %></h1>
+                    </div>
+                    <div class="row mb-5">
+                        <h2><%= @item.introduction %></h2>
+                    </div>
+                    <div class="row mb-4 align-items-end">
+                        <span class="h2 mr-2">¥<%= @item.price.to_s(:delimited) %></span>
+                        <span class="h5">(税込)</span>
+                    </div>
+                    <%= form_with model: @cart_item,url: cart_items_path,method: :post do |f| %>
+                    <%= f.hidden_field :id,:value => @item.id %>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <%= f.select :amount, *[1..10],prompt: "個数選択" %>
+                        </div>
+                        <div class="col-sm-6">
+                            <%= link_to cart_items_path do %>
+                                <%= f.submit "カートに入れる",class: "btn btn-success text-white" %>
+                            <% end %>
+                        </div>
+                    </div>
+                    <% end %>
                 </div>
             </div>
         </div>

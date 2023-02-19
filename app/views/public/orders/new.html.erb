@@ -2,16 +2,23 @@
     <div class="row my-4 offset-sm-1 justify-content-between">
         <h3 class="px-2" align="center" style="background-color:#e9ecef;">注文情報入力</h3>    
     </div>
+    <%= form_with model: @order,url: orders_confirm_path,method: :post do |f| %>
     <div class="row offset-sm-1">
         <h3 class="font-weight-bold">支払方法</h3>
     </div>
     <div class="row offset-sm-1">
-        
+        <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
     </div>
+    <div class="row offset-sm-1">
+        <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:transfer] %>
+    </div>    
     <div class="row offset-sm-1">
         <h3 class="font-weight-bold">お届け先</h3>
     </div>
     <div class="row">
         
     </div>
+    <% end %>
 </div>

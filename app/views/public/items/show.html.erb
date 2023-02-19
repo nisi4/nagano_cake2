@@ -31,16 +31,14 @@
                         <span class="h2 mr-2">¥<%= @item.price.to_s(:delimited) %></span>
                         <span class="h5">(税込)</span>
                     </div>
-                    <%= form_with model: @cart_item,url: cart_items_path,method: :post do |f| %>
-                    <%= f.hidden_field :id,:value => @item.id %>
+                    <%= form_with model: @cart_item,local:true do |f| %>
+                    <%= f.hidden_field :item_id,:value => @item.id %>
                     <div class="row">
                         <div class="col-sm-5">
                             <%= f.select :amount, *[1..10],prompt: "個数選択" %>
                         </div>
                         <div class="col-sm-6">
-                            <%= link_to cart_items_path do %>
-                                <%= f.submit "カートに入れる",class: "btn btn-success text-white" %>
-                            <% end %>
+                            <%= f.submit "カートに入れる",class: "btn btn-success text-white" %>
                         </div>
                     </div>
                     <% end %>

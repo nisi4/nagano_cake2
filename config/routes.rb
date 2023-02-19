@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  get 'orders/new'
-  get 'orders/complete'
+  get 'orders/new' => "public/orders#new"
+  get 'orders/complete' => "public/orders#complete"
   get 'orders' => "public/orders#index"
   get 'orders/:id' => "public/orders#show"
 
@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   patch "addresses/:id" => "public/addresses#update",as: "update_address"
   delete "addresses/:id" => "public/addresses#destroy",as: "delete_address"
 
-  resources :cart_items,only: [:index]
+  get "cart_items" => "public/cart_items#index"
+  patch "cart_items/:id" => "public/cart_items#update",as: "cart_item"
+  post "cart_items" => "public/cart_items#create"
+  delete "cart_items/:id" => "public/cart_items#destroy"
+  delete "cart_items/destroy_all" => "public/cart_items#destroy_all"
 
   get "items" => "public/items#index"
   get "items/:id" => "public/items#show",as: "item"

@@ -26,9 +26,11 @@
            <div class="row">
                <% @items.each do |item| %>
                 　　<div class="col-sm-2">
-                       <%= image_tag item.get_image,class: "img-fluid" %>
-                       <%= item.name %><br>
-                       ¥<%= item.price %>
+                　　  <%= link_to item_path(item.id) do %>
+                           <%= image_tag item.get_image,class: "img-fluid" %>
+                           <%= item.name %><br>
+                           ¥<%= item.price.to_s(:delimited) %>
+                      <% end %>
                     </div>
             　 <% end %>
            </div>

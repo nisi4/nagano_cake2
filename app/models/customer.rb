@@ -12,6 +12,10 @@ class Customer < ApplicationRecord
     self.last_name_kana + self.first_name_kana
   end
   
+  def customer_address
+    "〒" + postal_code + "  " + address 
+  end
+  
   has_many :orders,dependent: :destroy
   has_many :cart_items,dependent: :destroy
   has_many :addresses,dependent: :destroy

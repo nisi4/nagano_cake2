@@ -30,7 +30,7 @@
                 <tr>
                     <td><%= image_tag cart_item.item.get_image,size: "80x60" %> <%= cart_item.item.name %></td>
                     <td><span><%= cart_item.item.add_tax_price.to_s(:delimited) %></span></td>
-                    <%= form_with  model: cart_item do |f| %>
+                    <%= form_with model: cart_item do |f| %>
                     <td><%= f.select :amount,*[1..10],{},selected: "cart_item.amount" %> <%= f.submit "変更",class: "btn btn-success text-white" %></td>
                     <td><%= cart_item.subtotal.to_s(:delimited) %></td>
                     <% end %>

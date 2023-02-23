@@ -21,11 +21,14 @@ class Public::OrdersController < ApplicationController
     @total = 0
     @postage = 800
   end
-
-  def complete
-  end
   
   def create
+    order = Order.new(order_params)
+    order.save
+    redirect_to orders_complete_path
+  end
+
+  def complete
   end
 
   def index
@@ -36,6 +39,6 @@ class Public::OrdersController < ApplicationController
   
   private
   def order_params
-    params.require(:order).permit(:payment_method,:postal_code,:address,:name)
+    params.require(:order).permit(:payment_method,:postal_code,:address,:name,:payment,:customer_id,:postage)
   end
 end

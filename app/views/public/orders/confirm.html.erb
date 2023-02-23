@@ -6,10 +6,10 @@
         <div class="col-sm-8">
             <table class="table table-bordered">
                 <colgroup>
-                    <col width="55">
-                    <col width="15">
-                    <col width="15">
-                    <col width="15">
+                    <col width="55%">
+                    <col width="15%">
+                    <col width="15%">
+                    <col width="15%">
                 </colgroup>
                 <thead>
                     <tr class="bg-light">
@@ -35,8 +35,8 @@
         <div class="col-sm-3">
             <table class="table table-bordered">
                 <colgroup>
-                    <col width="50" class="bg-light">
-                    <col width="50">
+                    <col width="50%" class="bg-light">
+                    <col width="50%">
                 </colgroup>
                 <tr>
                     <th>送料</th>
@@ -57,12 +57,12 @@
         <div class="col-sm-8">
             <table class="table table-borderless">
                 <colgroup>
-                    <col width="20">
-                    <col width="80">
+                    <col width="20%">
+                    <col width="80%">
                 </colgroup>
                 <tr>
                     <th class="h4 font-weight-bold">支払方法</th>
-                    <td class="h4"><%= @order.payment_method %></td>
+                    <td class="h4"><%= @order.payment_method_i18n %></td>
                 </tr>
                 <tr>
                     <th class="h4 font-weight-bold">お届け先</th>

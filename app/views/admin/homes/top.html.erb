@@ -3,8 +3,14 @@
     <h3 class="px-4" style="background-color:#e9ecef;">注文履歴一覧</h3>
   </div>
   <div class="row offset-sm-2">
-    <div class="col-sm-9">
-        <table class="table table-hover">
+    <div class="col-sm-10">
+        <table class="table table-hover border-bottom">
+           <colgroup>
+             <col width="25%">
+             <col width="25%">
+             <col width="25%">
+             <col width="25%">
+           </colgroup>
            <thead>
              <tr class="bg-light">
                <th>購入日時</th>
@@ -16,10 +22,16 @@
            <tbody>
              <% @orders.each do |order| %>
              <tr>
-               <td><%= order.created_at %></td>
+               <td>
+                   <u>
+                      <%= link_to admin_order_path(order.id),class: "text-decoration-none text-dark" do %>
+                        <%= order.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+                      <% end %>
+                   </u>
+               </td>
                <td><%= order.customer.full_name %></td>
-               <td><%= order.order_item.sum(:amount) %></td>
-               <td><%= order.order_status %></td>
+               <td><%= order.order_items.sum(:amount) %></td>
+               <td><%= order.order_status_i18n %></td>
              </tr>
              <% end %>
            </tbody>

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get "about" => 'public/homes#about'
     
   namespace :admin do
-    get 'order_items/update'
+    patch 'order_items/update'
   end
   namespace :admin do
     resources :orders,only: [:show,:update]

@@ -38,10 +38,9 @@ Rails.application.routes.draw do
 
   root to: 'public/homes#top'
   get "about" => 'public/homes#about'
-    
-  namespace :admin do
-    patch 'order_items/update'
-  end
+  
+  patch "admin/order_items/:id" => "admin/order_items#update",as: "admin_order_item"
+  
   namespace :admin do
     resources :orders,only: [:show,:update]
   end

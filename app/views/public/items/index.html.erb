@@ -22,7 +22,7 @@
            <div class="row mr-5" style="font-size:0px;">
                <% @items.each do |item| %>
                         <div class="col-sm-3 h6 px-1">
-                            <%= link_to item_path(item.id) do %>
+                            <%= link_to item_path(item.id),class: "text-decoration-none text-dark" do %>
                                 <div class="mb-2">
                                     <%= image_tag item.get_image,class: "img-fluid" %>
                                 </div>

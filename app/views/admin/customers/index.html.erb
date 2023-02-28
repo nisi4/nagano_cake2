@@ -18,8 +18,8 @@
              <tr>
                <td><%= customer.id %></td>
                <td>
-                 <%= link_to admin_customer_path(customer.id) do %>
-                   <%= customer.full_name %>
+                 <%= link_to admin_customer_path(customer.id),class: "text-decoration-none text-dark" do %>
+                   <u><%= customer.full_name %></u>
                  <% end %>
                </td>
                <td><%= customer.email %></td>

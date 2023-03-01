@@ -14,15 +14,20 @@
     <header>
     <div class="container-fluid border-bottom border-1px border-dark">
       <div class="row">
-        <div class="col-sm-3 my-3 my-sm-4 align-self-center">
+        <div class="col-sm-3 my-3 my-sm-4 align-self-center mr-auto">
           <%= link_to root_path,class: "text-decoration-none text-dark" do %>
             <h2 class="mb-0"><span class="px-sm-3 py-sm-2">ながのCAKE</span></h2>
           <% end %>
         </div>
-        <div class="col-sm-2">
-
+        <div class="col-sm-2 d-flex align-items-center">
+          <h6>
+            <% if customer_signed_in? %>
+              ようこそ、<%= current_customer.last_name %>さん！
+            <% else %>
+            <% end %>
+          </h6>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-6 pl-0 mr-1">
           <div class="row justify-content-sm-end">
             <nav class="navbar navbar-expand-md navbar-light bg-white">
               <button class="navbar-toggler" data-toggle="collapse" data-target="#dropdown">
@@ -38,43 +43,43 @@
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to admin_customers_path do %>
-                        <button class="btn btn-outline-secondary">会員一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">会員一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to admin_root_path do %>
-                        <button class="btn btn-outline-secondary">注文履歴一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">注文履歴一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to admin_genres_path do %>
-                        <button class="btn btn-outline-secondary">ジャンル一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">ジャンル一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item ml-3">
                       <%= link_to destroy_admin_session_path,method: :delete do %>
-                        <button class="btn btn-outline-secondary">ログアウト</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">ログアウト</button>
                       <% end %>
                     </li>                    
                   <% elsif customer_signed_in? %>
                     <li class="nav-item mx-3">
                       <%= link_to customers_my_page_path do %>
-                        <button class="btn btn-outline-secondary">マイページ</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">マイページ</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to items_path do %>
-                        <button class="btn btn-outline-secondary">商品一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">商品一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to cart_items_path do %>
-                        <button class="btn btn-outline-secondary">カート</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">カート</button>
                       <% end %>
                     </li>
                     <li class="nav-item ml-3">
                       <%= link_to destroy_customer_session_path,method: :delete do %>
-                        <button class="btn btn-outline-secondary">ログアウト</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">ログアウト</button>
                       <% end %>
                     </li>
                   <% else %>

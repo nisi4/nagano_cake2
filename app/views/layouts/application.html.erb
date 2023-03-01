@@ -38,7 +38,7 @@
                   <% if admin_signed_in? %>
                     <li class="nav-item mx-3">
                       <%= link_to admin_items_path do %>
-                        <button class="btn btn-outline-secondary">商品一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:106px;">商品一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
@@ -48,12 +48,12 @@
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to admin_root_path do %>
-                        <button class="btn btn-outline-secondary" style="width:106px;">注文履歴一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:125px;">注文履歴一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to admin_genres_path do %>
-                        <button class="btn btn-outline-secondary" style="width:106px;">ジャンル一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:125px;">ジャンル一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item ml-3">
@@ -85,22 +85,22 @@
                   <% else %>
                     <li class="nav-item mx-3">
                       <%= link_to about_path do %>
-                        <button class="btn btn-outline-secondary">About</button>
+                        <button class="btn btn-outline-secondary" style="width:90px;">About</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to items_path do %>
-                        <button class="btn btn-outline-secondary">商品一覧</button>
+                        <button class="btn btn-outline-secondary" style="width:90px;">商品一覧</button>
                       <% end %>
                     </li>
                     <li class="nav-item mx-3">
                       <%= link_to new_customer_registration_path do %>
-                        <button class="btn btn-outline-secondary">新規登録</button>
+                        <button class="btn btn-outline-secondary" style="width:90px;">新規登録</button>
                       <% end %>
                     </li>
                     <li class="nav-item ml-3">
                       <%= link_to new_customer_session_path do %>
-                        <button class="btn btn-outline-secondary">ログイン</button>
+                        <button class="btn btn-outline-secondary" style="width:90px;">ログイン</button>
                       <% end %>
                     </li>
                   <% end %>

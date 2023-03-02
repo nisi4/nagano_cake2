@@ -31,7 +31,7 @@
             <th class="align-middle">注文ステータス</th>
             <%= form_with model: @order,url: admin_order_path(@order.id),method: :patch do |f| %>
             <td>
-                <%= f.select :order_status,Order.order_statuses.keys.map { |k| [t("enums.order.order_status.#{k}"),k] },{},selected: @order.order_status_before_type_cast,class: "form-control text-center" %>
+                <%= f.select :order_status,Order.order_statuses.keys.map { |k| [t("enums.order.order_status.#{k}"),k] },{},selected: @order.order_status,class: "form-control text-center" %>
             </td>
             <td class="align-middle"><%= f.submit "更新",class: "btn btn-success btn-sm text-white" %></td>
             <% end %>
@@ -69,7 +69,7 @@
                <td class="align-middle text-center"><%= order_item.subtotal.to_s(:delimited) %></td>
                <%= form_with model: order_item,url: admin_order_item_path(order_item.id),method: :patch do |f| %>
                <td>
-                   <%= f.select :product_status,OrderItem.product_statuses.keys.map { |k| [t("enums.order_item.product_status.#{k}"),k] },{},selected: order_item.product_status_before_type_cast,class: "form-control text-center" %>
+                   <%= f.select :product_status,OrderItem.product_statuses.keys.map { |k| [t("enums.order_item.product_status.#{k}"),k] },{},selected: order_item.product_status,class: "form-control text-center" %>
                </td>
                <td class="align-middle"><%= f.submit "更新",class: "btn btn-success btn-sm text-white form-control" %></td>
                <% end %>

@@ -33,7 +33,7 @@
     </div>
     <div class="row offset-sm-1 pl-5 mb-2">
         <div class="col-sm-8 ml-3">
-            <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses,:id,:address_display) %>
+            <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses,:id,:address_display),{},class: "form-control" %>
         </div>
     </div>
     <div class="row offset-sm-1 pl-5">

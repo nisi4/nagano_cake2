@@ -29,12 +29,21 @@
                 <% @cart_items.each do |cart_item| %>
                 <tr>
                     <td><%= image_tag cart_item.item.get_image,size: "80x60" %> <%= cart_item.item.name %></td>
-                    <td><span><%= cart_item.item.add_tax_price.to_s(:delimited) %></span></td>
+                    <td class="align-middle"><span><%= cart_item.item.add_tax_price.to_s(:delimited) %></span></td>
                     <%= form_with model: cart_item do |f| %>
-                    <td><%= f.select :amount,*[1..10],{},selected: "cart_item.amount" %> <%= f.submit "変更",class: "btn btn-success text-white" %></td>
-                    <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+                    <td class="align-middle">
+                        <div class="row d-flex">
+                            <div class="col-7">
+                                <%= f.select :amount,*[1..10],{},selected: "cart_item.amount",class: "form-control" %>    
+                            </div> 
+                            <div class="col-5 p-0">
+                                <%= f.submit "変更",class: "btn btn-success text-white" %>    
+                            </div>    
+                        </div>
+                    </td>
+                    <td class="align-middle"><%= cart_item.subtotal.to_s(:delimited) %></td>
                     <% end %>
-                    <td align="center"><%= link_to "削除する",cart_item_path(cart_item.id),method: :delete,class: "btn btn-danger text-white" %></td>
+                    <td class="align-middle" align="center"><%= link_to "削除する",cart_item_path(cart_item.id),method: :delete,class: "btn btn-danger text-white" %></td>
                     <% @total += cart_item.subtotal %>
                 </tr>
                 <% end %>
@@ -43,7 +52,7 @@
     </div>
     <div class="row offset-sm-1 my-4 mr-5 justify-content-between">
         <div class="col-sm-3">
-            <%= link_to "買い物を続ける",items_path,class: "btn btn-primary text-white" %>
+            <%= link_to "買い物を続ける",root_path,class: "btn btn-primary text-white" %>
         </div>
         <div class="col-sm-3">
             <table class="table table-bordered">
@@ -55,6 +64,10 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <%= link_to "情報入力に進む",orders_new_path,class: "btn btn-success text-white px-3" %>
+        <% if @cart_items.present? %>
+            <%= link_to "情報入力に進む",orders_new_path,class: "btn btn-success text-white px-3" %>
+        <% else %>
+            <%= link_to "情報入力に進む",cart_items_path,class: "btn btn-success text-white px-3" %>
+        <% end %>
     </div>
 </dic>

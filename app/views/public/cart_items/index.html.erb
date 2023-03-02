@@ -28,7 +28,7 @@
             <tbody>
                 <% @cart_items.each do |cart_item| %>
                 <tr>
-                    <td><%= image_tag cart_item.item.get_image,size: "80x60" %> <%= cart_item.item.name %></td>
+                    <td class="align-middle"><%= image_tag cart_item.item.get_image,size: "80x60" %> <%= cart_item.item.name %></td>
                     <td class="align-middle"><span><%= cart_item.item.add_tax_price.to_s(:delimited) %></span></td>
                     <%= form_with model: cart_item do |f| %>
                     <td class="align-middle">

@@ -14,7 +14,7 @@
             <% end %>
           </div>
           <div class="col-sm-6">
-            <%= link_to customers_withdraw_path,method: :patch do %>
+            <%= link_to customers_withdraw_path,method: :patch,"data-confirm" => "本当に退会しますか？" do %>
               <button class="btn btn-danger text-white px-4">退会する</button>
             <% end %>
           </div>

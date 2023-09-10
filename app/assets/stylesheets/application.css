@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+}

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row my-4 offset-sm-2">
+    <h3 class="px-4" style="background-color:#e9ecef;">商品編集</h3>  
+  </div>
+  <%= form_with model: @item,url: admin_item_path,method: :patch do |f| %>
+  <div class="row d-flex justify-content-center offset-2 mb-3">
+    <h6 class="col-sm-2">商品画像</h6>
+    <div class="col-sm-6">
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center offset-2 mb-3">
+    <h6 class="col-sm-2">商品名</h6>
+    <div class="col-sm-6">
+      <%= f.text_field :name,placeholder: "商品名",style: "width:70%;" %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center offset-2 mb-3">
+    <h6 class="col-sm-2">商品説明</h6>
+    <div class="col-sm-6">
+      <%= f.text_area :introduction,placeholder: "ここに説明文を記述します",style: "width:70%; height:150px;" %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center offset-2 mb-3">
+    <h6 class="col-sm-2">ジャンル</h6>
+    <div class="col-sm-6" style="width:70%">
+      <%= f.collection_select(:genre_id, @genre, :id, :name, {prompt: "--選択してください--"},{style: "width:70%;"} ) %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center offset-2 mb-3">
+    <h6 class="col-sm-2">税抜価格</h6>
+    <div class="col-sm-6">
+      <%= f.text_field :price,placeholder: "1000",style: "width:70%;" %>円
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center offset-2 mb-3">
+    <h6 class="col-sm-2 px-o">販売ステータス</h6>
+    <div class="col-sm-6">
+      <table class="table table-borderless">
+        <colgroup>
+          <col width="20%">
+          <col width="30%">
+          <col width="50%">
+        </colgroup>
+        <tr>
+          <td class="p-0"><%= f.radio_button :is_active, "true",checked: true %>販売中</td>
+          <td class="p-0"><%= f.radio_button :is_active, "false" %>販売停止中</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+      <%= f.submit "変更を保存",class: "btn btn-success btn-lg text-white py-3 px-5" %>
+  </div>
+  <% end %>

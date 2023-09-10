@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row my-4 offset-sm-1 justify-content-between">
+        <h4 class="px-4" align="center" style="background-color:#e9ecef;">注文情報入力</h4>    
+    </div>
+    <%= form_with model: @order,url: orders_confirm_path,method: :post do |f| %>
+    <div class="row offset-sm-1">
+        <h4 class="font-weight-bold">支払方法</h4>
+    </div>
+    <div class="row offset-sm-1 pl-5">
+        <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card],class: "mb-0" %>
+    </div>
+    <div class="row offset-sm-1 pl-5 mb-3">
+        <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+        <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer],class: "mb-0" %>
+    </div>    
+    <div class="row offset-sm-1">
+        <h4 class="font-weight-bold">お届け先</h4>
+    </div>
+    <div class="row offset-sm-1 pl-5">
+        <%= f.radio_button :select_address,"0",checked: true %>
+        <%= f.label :address,"ご自身の住所",class: "mb-0" %>
+    </div>
+    <div class="row offset-sm-1 pl-5 mb-2">
+        <div class="col-sm-8 ml-3">
+            <%= current_customer.customer_address  %><br>
+            <%= current_customer.full_name %>
+        </div>
+    </div>
+    <div class="row offset-sm-1 pl-5">
+        <%= f.radio_button :select_address,"1" %>
+        <%= f.label :address,"登録済住所から選択",class: "mb-0" %>
+    </div>
+    <div class="row offset-sm-1 pl-5 mb-2">
+        <div class="col-sm-8 ml-3">
+            <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses,:id,:address_display),{},class: "form-control" %>
+        </div>
+    </div>
+    <div class="row offset-sm-1 pl-5">
+        <%= f.radio_button :select_address, "2" %>
+        <%= f.label :address,"新しいお届け先",class: "mb-0" %>
+    </div>
+    <div class="row offset-sm-1 pl-5">
+        <div class="col-sm-10">
+            <table class="table table-borderless">
+                <colgroup>
+                    <col width="25%">
+                    <col width="35%">
+                    <col width="35%">
+                </colgroup>
+                <tr>
+                    <td>郵便番号(ハイフンなし)</td>
+                    <td><%= f.text_field :postal_code,placefolder: "0000000",class: "form-control" %></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>住所</td>
+                    <td colspan="2"><%= f.text_field :address,placefolder: "東京都渋谷区代々木神園町0-0",class: "form-control" %></td>
+                </tr>
+                <tr>
+                    <td>宛名</td>
+                    <td><%= f.text_field :name,placefolder: "令和道子",class: "form-control" %></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <%= f.submit "確認画面へ進む",class: "btn btn-primary text-white" %>
+    </div>
+    <% end %>
+</div>
